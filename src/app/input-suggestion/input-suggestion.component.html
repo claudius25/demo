@@ -1,0 +1,34 @@
+<div class="suggestion">
+  <div class="suggestion__group">
+    <input
+      type="text"
+      class="suggestion__input"
+      placeholder="Type here"
+      (keyup)="inputKeyup()"
+      (click)="inputClick()"
+      [(ngModel)]="inputValue"
+    />
+
+    <div *ngIf="listSelected.length > 0" class="suggestion__badges">
+      <div *ngFor="let item of listSelected" class="suggestion__badge">
+        {{ item.label }}
+      </div>
+    </div>
+  </div>
+
+  <ul
+    class="suggestion__options"
+    aria-expanded="false"
+    [ngClass]="{ 'suggestion__options--open': options.length && isOpen }"
+  >
+    <div class="suggestion__items">
+      <div
+        *ngFor="let o of filteredOptions; let i = index"
+        class="suggestion__item"
+        (click)="select(o)"
+      >
+        <li [innerHTML]="o.label"></li>
+      </div>
+    </div>
+  </ul>
+</div>

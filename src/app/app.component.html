@@ -1,0 +1,7 @@
+Form countries selected :
+{{ formCountriesSelected }}
+
+<div [formGroup]="form">
+  <app-input-suggestion [options]="countriesList" formControlName="countries">
+  </app-input-suggestion>
+</div>
